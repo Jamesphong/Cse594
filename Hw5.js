@@ -114,19 +114,23 @@
     for(var i = 0; i < 4; i++) 
 	{
 	  newCells.push(new Cell(ctx, this.type, blockRotations[this.type][this.rotation][i][0] + this.x, blockRotations[this.type][this.rotation][i][1] + this.y));
-    }
+    	}
     
-	for(var i = 0; i < 4; i++) {
-	  if(newCells[i].x > 9) {
+	for(var i = 0; i < 4; i++) 
+	{
+	  if(newCells[i].x > 9) 
+	  {
 	    while(newCells[i].x > 9) for(var j = 0; j < 4; j++) newCells[j].moveL();
 	  }
-	  if(newCells[i].x < 0) {
+	  if(newCells[i].x < 0) 
+	  {
 	    while(newCells[i].x < 0) for(var k = 0; k < 4; k++) newCells[k].moveR();
 	  }
-	  if(newCells[i].y > 17) {
+	  if(newCells[i].y > 17) 
+	  {
 	    while(newCells[i].y > 17) for(var k = 0; k < 4; k++) newCells[k].y--;
 	  }
-    }
+    	}
     activeBlock.cells = newCells;
     for(var j = 0; j < inactiveBlocks.length; j++) 
 	{
@@ -136,9 +140,8 @@
 	    if(this.rotation > 0) this.rotation--;
 	    else this.rotation = 4;
 	  }
-    }
+    	}
   }
-}
 
 Block.prototype.CollideDown = function(otherBlock) {
   for (var i = 0; i < 4; ++i) 
@@ -234,23 +237,27 @@ Block.prototype.fullDrop = function()
 
     activeBlock.draw();
     var interval = setInterval(function() 
-	{
+    {
       clearGrid();
       for (var i = 0; i < inactiveBlocks.length; ++i) inactiveBlocks[i].draw();
       if (activeBlock.canDrop()) 
-	  {
+       {
         activeBlock.drop();
-      } else {
+       } 
+      
+      else 
+      {
         inactiveBlocks.push(activeBlock);
         activeBlock = new Block(0);
+        
         if (activeBlock.canDrop() === false) 
-		{
+	 {
           clearInterval(interval);
-        }
-      }
+          }
+       }
       activeBlock.draw();
-    }, INTERVAL);
-
+     }, INTERVAL;})
+}
 
   </script>
 
