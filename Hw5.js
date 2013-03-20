@@ -6,16 +6,16 @@
   <title>Tetris</title>
   <style>
     html, body, canvas 
-	{
+   {
       margin: 0;
       padding: 0
     }
     html, body 
-	{ 
+    { 
       width:100%; 
       height:100%; 
       overflow:hidden;
-    }
+     }
   </style>
 </head>
 
@@ -31,13 +31,13 @@
     var activeBlock = new Block(0);
 
     function clearGrid() 
-	{
+    {
       ctx.fillStyle = '#FFFFFF';
       ctx.fillRect(0, 0, 10 * CELL_SIZE, 18 * CELL_SIZE);
     }
 
     function Cell(x, y) 
-	{
+    {
       this.x = x;
       this.y = y;
     }
